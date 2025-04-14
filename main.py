@@ -13,6 +13,7 @@ def about(station, date):
     df = pd.read_csv(filename, skiprows=20, parse_dates=["    DATE"])
     
     temperature = df.loc[df["    DATE"]==date]["   TG"].squeeze() / 10
+    # squeeze : to remove the index from the series we get, so we only get the temperature 
     
     return {
         "station": station,
